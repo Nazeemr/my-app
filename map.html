@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+      html{
+        background-color: black;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        
+      }
+      .submit{
+        text-align: center;
+      }
+      #map {
+        height: 700px;
+        width:100%;
+        
+      }
+
+.container.body-content {
+    padding: 8px 0;
+    width: 100%;
+    margin: 0 auto;
+
+
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container body-content">
+    <div id="map"></div>
+    <script>
+      
+let map;
+
+
+function initMap() {
+  const nahs = {lat: 34.24596011703622, lng: -118.52374730478013};
+  const nms = {lat: 34.225525821404105, lng: -118.52478176064206};
+  const vips = {lat: 34.22191479881276, lng: -118.54367295205431};
+  const ancs = {lat: 34.25245017230207, lng: -118.55191327934433};
+  const lhs = {lat: 34.0491356726649, lng: -118.29750960638032};
+  const gchs = {lat: 34.2190, lng: -118.5487};
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: nahs,
+  });
+
+  //////////////////////////////////////////////////////////////
+
+  const contentString1 = '<b>1. Northridge Academy High School </b> <br> https://www.northridgeacademyhs.org/';
+  const contentString2 = '<b>2. Northridge Middle School </b> <br> https://northridgems-lausd-ca.schoolloop.com/';
+  const contentString3 = '<b>3. Valley International Prep School</b> <br> https://www.viphs.org/';
+  const contentString4 = '<b>4. Alfred Nobel Charter School </b> ';
+  const contentString5 = '<b>5. Loyola High School</b> <br> https://www.loyolahs.edu/';
+  const contentString6 = '<b>6. Grover Cleveland Highschool</b> <br>https://www.clevelandhs.org/';
+/////////////////////////////////////////////////////////////////
+
+  const infowindow1 = new google.maps.InfoWindow({
+    content: contentString1,
+    ariaLabel: "NAHS",
+  });
+   const infowindow2 = new google.maps.InfoWindow({
+    content: contentString2,
+    ariaLabel: "NMS",
+  });
+  const infowindow3 = new google.maps.InfoWindow({
+    content: contentString3,
+    ariaLabel: "VIPS",
+  });
+  const infowindow4 = new google.maps.InfoWindow({
+    content: contentString4,
+    ariaLabel: "ANCS",
+  });
+  const infowindow5 = new google.maps.InfoWindow({
+    content: contentString5,
+    ariaLabel: "LHS",
+  });
+    const infowindow6 = new google.maps.InfoWindow({
+    content: contentString6,
+    ariaLabel: "GCHS",
+  });
+ 
+  ///////////////////////////////////////////////////////////////////
+
+  const firstmarker = new google.maps.Marker({
+    position: nahs,
+    map,
+    title: "Northridge Academy High School",
+  });
+    const secondmarker = new google.maps.Marker({
+    position: nms,
+    map,
+    title: "Northridge Middle School",
+  });
+    const thirdmarker = new google.maps.Marker({
+    position: vips,
+    map,
+    title: "Valley International Prep School",
+  });
+  const fourthmarker = new google.maps.Marker({
+    position: ancs,
+    map,
+    title: "Alfred Nobel Charter High School",
+  });
+  const fifthmarker = new google.maps.Marker({
+    position: lhs,
+    map,
+    title: "Loyola High School",
+  });
+  const sixthmarker = new google.maps.Marker({
+  position: gchs,
+  map,
+  title: "Grover Cleveland Highscool",
+  });
+///////////////////////////////////////////////////////////
+
+  firstmarker.addListener("click", () => {
+    infowindow1.open({
+      anchor: firstmarker,
+      map,
+    });
+  });
+   secondmarker.addListener("click", () => {
+    infowindow2.open({
+      anchor: secondmarker,
+      map,
+    });
+  });
+  thirdmarker.addListener("click", () => {
+    infowindow3.open({
+      anchor: thirdmarker,
+      map,
+    });
+  });
+  fourthmarker.addListener("click", () => {
+    infowindow4.open({
+      anchor: fourthmarker,
+      map,
+    });
+  });
+  fifthmarker.addListener("click", () => {
+    infowindow5.open({
+      anchor: fifthmarker,
+      map,
+    });
+  });
+  sixthmarker.addListener("click", () => {
+  infowindow6.open({
+    anchor: sixthmarker,
+    map,
+    });
+  });
+  ///////////////////////////////////////////////////
+}
+
+window.initMap = initMap;
+      
+    </script>
+    </div>
+ 
+
+    
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAduQvERzfyYbcvLygpDgSp9bjHhTpL5Ls&callback=initMap"></script>
+     
+      <div class= submit>
+      <button
+      type="submit"
+      value="Go Home"
+       onclick= "location.href='index.html'"
+      > 
+    Go Home
+    
+  </body>
+</html>
+
